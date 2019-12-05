@@ -21,8 +21,6 @@
 - `Page` no longer renders navigation or actions in print mode ([#2469](https://github.com/Shopify/polaris-react/pull/2469))
 - Migrated `Dropzone` to a functional component and reduce complexity ([#2360](https://github.com/Shopify/polaris-react/pull/2360))
 - Added `fluidContent` prop to `Popover` ([#2494](https://github.com/Shopify/polaris-react/pull/2494))
-- Add `external` prop to `ResourceList` [#2408](https://github.com/Shopify/polaris-react/pull/2408)
-- Add `onMouseEnter` and `onTouchStart` props to `Button` ([#2409](https://github.com/Shopify/polaris-react/pull/2409))
 - Added a split variant to `Button` ([#2329](https://github.com/Shopify/polaris-react/pull/2329))
 
 ### Bug fixes
