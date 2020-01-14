@@ -2,21 +2,28 @@
 
 $dropzone-padding: rem(15px);
 $dropzone-border-style: dashed;
-$dropzone-border-color: color('ink', 'lightest');
-$dropzone-border-color-disabled: color('sky');
+$dropzone-border-color: var(--p-border, color('ink', 'lightest'));
+$dropzone-border-color-disabled: var(--p-border-disabled, color('sky'));
 $dropzone-border-radius: border-radius();
-$dropzone-background: color('white');
+$dropzone-background: var(--p-surface, color('white'));
 $dropzone-min-height-extra-large: rem(205px);
 $dropzone-min-height-large: rem(160px);
 $dropzone-min-height-medium: rem(100px);
 $dropzone-min-height-small: rem(50px);
 
-$dropzone-overlay-color: color('indigo');
-$dropzone-overlay-color-error: color('red');
-$dropzone-overlay-border-color: color('indigo');
-$dropzone-overlay-border-color-error: color('red');
-$dropzone-overlay-background: color('indigo', 'lighter');
-$dropzone-overlay-background-error: color('red', 'lighter');
+$dropzone-overlay-color: var(--p-surface, color('indigo'));
+$dropzone-overlay-text-color: var(--p-text, color('indigo'));
+$dropzone-overlay-text-color-error: var(--p-text-critical, color('red'));
+$dropzone-overlay-border-color: var(--p-border, color('indigo'));
+$dropzone-overlay-border-color-error: var(--p-border-critical, color('red'));
+$dropzone-overlay-background: var(
+  --p-surface-hovered,
+  color('indigo', 'lighter')
+);
+$dropzone-overlay-background-error: var(
+  --p-surface-critical-subdued,
+  color('red', 'lighter')
+);
 $dropzone-stacking-order: (
   outline: 29,
   overlay: 30,
@@ -139,16 +146,41 @@ $dropzone-stacking-order: (
   border: border-width(thick) $dropzone-border-style $dropzone-overlay-color;
   border-radius: $dropzone-border-radius;
   text-align: center;
-  color: $dropzone-overlay-color;
+  color: $dropzone-overlay-text-color;
   background-color: $dropzone-overlay-background;
 
   .hasError & {
     border-color: $dropzone-overlay-border-color-error;
-    color: $dropzone-overlay-color-error;
+    color: $dropzone-overlay-text-color-error;
     background-color: $dropzone-overlay-background-error;
   }
 
   .sizeSmall & {
     padding: 0;
+  }
+}
+
+.globalTheming:not(.hasError) {
+  .Overlay {
+    border: border-width(thick) $dropzone-border-style $dropzone-border-color;
+  }
+
+  &.isDragging {
+    // stylelint-disable-next-line selector-max-specificity, selector-max-class
+    .Overlay {
+      border: none;
+    }
+
+    // stylelint-disable-next-line selector-max-specificity
+    &:not(.isDisabled) {
+      @include focus-ring('base', dashed);
+    }
+  }
+
+  &.focused {
+    // stylelint-disable-next-line selector-max-specificity
+    &:not(.isDisabled) {
+      @include focus-ring('base', dashed);
+    }
   }
 }

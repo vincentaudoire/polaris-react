@@ -465,6 +465,26 @@ describe('<DropZone />', () => {
       }).not.toThrow();
     });
   });
+
+  describe('globalTheming', () => {
+    it('adds a global theming class when global theming is enabled', () => {
+      const dropZone = mountWithApp(<DropZone />, {
+        features: {unstableGlobalTheming: true},
+      });
+      expect(dropZone).toContainReactComponent('div', {
+        className: 'DropZone hasOutline globalTheming sizeExtraLarge measuring',
+      });
+    });
+
+    it('does not add a global theming class when global theming is disabled', () => {
+      const dropZone = mountWithApp(<DropZone />, {
+        features: {unstableGlobalTheming: false},
+      });
+      expect(dropZone).not.toContainReactComponent('div', {
+        className: 'DropZone hasOutline globalTheming sizeExtraLarge measuring',
+      });
+    });
+  });
 });
 
 function createEvent(name: string, files: any) {
