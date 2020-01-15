@@ -6,6 +6,7 @@
 
 ### Enhancements
 
+- Applied design language and color system to Frame components [2602](https://github.com/Shopify/polaris-react/pull/2602/)
 - Added `hideTags` prop to `Filters` ([#2573](https://github.com/Shopify/polaris-react/pull/2573))
 - Added `searchResultsOverlayVisible` prop to `TopBar` which adds a translucent background to the search dismissal overlay when results are displayed ([#2440](https://github.com/Shopify/polaris-react/pull/2440))
 

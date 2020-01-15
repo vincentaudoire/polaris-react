@@ -28,7 +28,7 @@ $skip-vertical-offset: rem(10px);
   transform: translateX(0%);
 
   @include frame-when-nav-displayed {
-    z-index: 0;
+    z-index: z-index(nav, $fixed-element-stacking-order);
     display: flex;
 
     &:not(.Navigation-globalTheming) {
