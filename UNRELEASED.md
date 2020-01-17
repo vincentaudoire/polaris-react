@@ -56,5 +56,6 @@
 - Converted `Tooltip` into a functional component ([#2543](https://github.com/Shopify/polaris-react/pull/2543))
 - Converted `Option` into a functional component ([#2541](https://github.com/Shopify/polaris-react/pull/2541))
 - Avoided unneeded work in `TextField` if character count is not rendered ([#2598](https://github.com/Shopify/polaris-react/pull/2598))
+- Use `export *` to rexport component content in component indexs and subcomponent listings ([#2625](https://github.com/Shopify/polaris-react/pull/2625))
 
 ### Deprecations
